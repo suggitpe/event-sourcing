@@ -1,8 +1,18 @@
-allprojects{ projects ->
+allprojects { projects ->
+
     defaultTasks 'clean', 'build'
 
+    buildscript {
+        repositories {
+            jcenter()
+            mavenCentral()
+        }
+        dependencies {
+            classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE'
+        }
+    }
+
     apply plugin: 'idea'
-    apply plugin: 'java'
     apply from: "$rootDir/gradle/libraries.gradle"
 
     idea.module {
@@ -14,32 +24,25 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.13'
 }
 
-subprojects{ projects ->
+subprojects { projects ->
+
+    apply plugin: 'java'
 
     group = "org.suggs.sandbox.eventsourcing"
 
-    ext{
+    ext {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
 
-    buildscript {
-        repositories {
-            jcenter()
-            mavenCentral()
-        }
-        dependencies {
-            classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.1.RELEASE'
-        }
-    }
-
-    repositories{
+    repositories {
         jcenter()
         mavenCentral()
     }
 
-    dependencies{
-        compile libs.slf4jApi
+    dependencies {
+        compile libs.springBootStarter,
+                libs.slf4jApi
 
         runtime libs.logback
 

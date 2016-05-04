@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  accounts-service:
+    build: ./accounts-service
+    network_mode: host
+    ports:
+      - 8801:8801
