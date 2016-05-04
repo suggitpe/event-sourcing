@@ -1,0 +1,16 @@
+ext{
+    slf4jVersion = '1.7.21'
+
+    libs = [
+            slf4jApi: "org.slf4j:slf4j-api:$slf4jVersion",
+            logback: 'ch.qos.logback:logback-classic:1.1.7',
+            springBootStarter: 'org.springframework.boot:spring-boot-starter-web',
+
+            test: [
+                    junit: 'junit:junit:4.12',
+                    mockito: 'org.mockito:mockito-all:1.10.19',
+                    assertj: 'org.assertj:assertj-core:3.4.1'
+                    
+            ]
+    ]
+}
