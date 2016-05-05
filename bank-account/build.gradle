@@ -41,10 +41,7 @@ subprojects { projects ->
     }
 
     dependencies {
-        compile libs.springBootStarter,
-                libs.slf4jApi
-
-        runtime libs.logback
+        compile libs.springBootStarter
 
         testCompile libs.test.junit,
                 libs.test.mockito,

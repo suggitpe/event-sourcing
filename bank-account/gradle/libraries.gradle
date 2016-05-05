@@ -9,7 +9,8 @@ ext{
             test: [
                     junit: 'junit:junit:4.12',
                     mockito: 'org.mockito:mockito-all:1.10.19',
-                    assertj: 'org.assertj:assertj-core:3.4.1'
+                    assertj: 'org.assertj:assertj-core:3.4.1',
+                    springBootTestStarter: 'org.springframework.boot:spring-boot-starter-test'
                     
             ]
     ]

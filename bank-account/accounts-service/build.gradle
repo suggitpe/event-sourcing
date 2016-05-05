@@ -5,4 +5,7 @@ jar{
     version = '0.0.1'
 }
 
+dependencies{
+    testCompile libs.test.springBootTestStarter
+}
 
