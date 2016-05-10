@@ -41,7 +41,8 @@ subprojects { projects ->
     }
 
     dependencies {
-        compile libs.springBootStarter
+        compile libs.springBootStarter,
+                libs.inject
 
         testCompile libs.test.junit,
                 libs.test.mockito,

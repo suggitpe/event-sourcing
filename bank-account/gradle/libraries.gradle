@@ -5,6 +5,7 @@ ext{
             slf4jApi: "org.slf4j:slf4j-api:$slf4jVersion",
             logback: 'ch.qos.logback:logback-classic:1.1.7',
             springBootStarter: 'org.springframework.boot:spring-boot-starter-web',
+            inject: 'javax.inject:javax.inject:1',
 
             test: [
                     junit: 'junit:junit:4.12',

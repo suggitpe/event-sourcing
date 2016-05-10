@@ -7,15 +7,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.suggs.sandbox.eventsourcing.backaccount.accounts.service.AccountsAggregate;
+import org.suggs.sandbox.eventsourcing.backaccount.accounts.service.CreateAccountCommand;
+
+import javax.inject.Inject;
 
 @RestController
 public class AccountsController {
 
     private static final Logger LOG = LoggerFactory.getLogger(AccountsController.class);
 
+    @Inject
+    private AccountsAggregate accountsAggregate;
+
     @RequestMapping(value = "/accounts", method = RequestMethod.POST)
     public CreateAccountResponse createAccount(@Validated @RequestBody CreateAccountRequest createAccountRequest) {
-        LOG.info("Called with " + createAccountRequest.getInitialBalance());
-        return new CreateAccountResponse("foo1234");
+        String accountNumber = accountsAggregate.createAccount(new CreateAccountCommand(createAccountRequest.getInitialBalance()));
+        return new CreateAccountResponse(accountNumber);
     }
 }
