@@ -33,30 +33,12 @@ public class AccountsControllerTest {
     }
 
     @Test
-    public void opensAnAccountWithAnInitialBalance() throws Exception {
+    public void createsACreateAccountRequest() throws Exception {
         mockMvc.perform(post("/accounts")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"initialBalance\":\"500\"}")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
-    }
-
-    @Test
-    public void rejectsAnAccountRequestWithANegativeOpeningBalance() throws Exception {
-        mockMvc.perform(post("/accounts")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"initialBalance\":\"-5\"}")
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().is(HttpStatus.BAD_REQUEST.value()));
-    }
-
-    @Test
-    public void rejectsAnAccountRequestWithPoorlyFormedRequest() throws Exception {
-        mockMvc.perform(post("/accounts")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"initialFoo\":\"500\"}")
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().is(HttpStatus.BAD_REQUEST.value()));
     }
 
 }

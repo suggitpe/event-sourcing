@@ -1,7 +1,7 @@
 apply plugin: 'spring-boot'
 
 jar{
-    baseName = 'accounts-service'
+    baseName = 'accounts-repository'
     version = '0.0.1'
 }
 

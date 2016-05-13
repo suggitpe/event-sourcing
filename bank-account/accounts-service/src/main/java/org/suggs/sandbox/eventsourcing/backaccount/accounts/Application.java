@@ -4,11 +4,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
 import org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsControllerConfiguration;
-import org.suggs.sandbox.eventsourcing.backaccount.accounts.service.AccountsAggregateConfiguration;
+import org.suggs.sandbox.eventsourcing.backaccount.accounts.repository.AccountRepositoryConfiguration;
 
 @SpringBootApplication
 @Import({AccountsControllerConfiguration.class,
-        AccountsAggregateConfiguration.class})
+        AccountRepositoryConfiguration.class})
 public class Application {
 
     public static void main(String[] args) {

@@ -1,21 +1,23 @@
 package org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers;
 
+import java.util.UUID;
+
 public class CreateAccountResponse {
 
-    private String accountId;
+    private UUID requestId;
 
     public CreateAccountResponse() {
     }
 
-    public CreateAccountResponse(String accountId) {
-        this.accountId = accountId;
+    public CreateAccountResponse(UUID requestId) {
+        this.requestId = requestId;
     }
 
-    public String getAccountId() {
-        return accountId;
+    public UUID getRequestId() {
+        return requestId;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
+    public void setRequestId(UUID requestId) {
+        this.requestId = requestId;
     }
 }

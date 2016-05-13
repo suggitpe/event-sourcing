@@ -2,7 +2,7 @@ version: '2'
 
 services:
   accounts-service:
-    build: ./accounts-service
+    build: ./accounts-repository
     network_mode: host
     ports:
       - 8801:8801
