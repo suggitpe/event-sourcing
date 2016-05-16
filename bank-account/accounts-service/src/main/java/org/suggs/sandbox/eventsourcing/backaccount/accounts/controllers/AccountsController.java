@@ -13,6 +13,7 @@ import org.suggs.sandbox.eventsourcing.backaccount.accounts.repository.AccountRe
 import javax.inject.Inject;
 import java.util.UUID;
 
+import static org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.RequestResponse.aResponseForRequestWithIdOf;
 import static org.suggs.sandbox.eventsourcing.backaccount.accounts.domain.AccountCreationRequestedEvent.anAccountCreationRequestedEventFor;
 import static org.suggs.sandbox.eventsourcing.backaccount.accounts.domain.CreateAccountCommand.aCreateAccountCommandWith;
 
@@ -27,10 +28,10 @@ public class AccountsController {
     private InternalCommandBus internalCommandBus;
 
     @RequestMapping(value = "/accounts", method = RequestMethod.POST)
-    public CreateAccountResponse createAccount(@Validated @RequestBody CreateAccountRequest createAccountRequest) {
+    public RequestResponse createAccount(@Validated @RequestBody CreateAccountRequest createAccountRequest) {
         UUID createAccountRequestId = UUID.randomUUID();
         internalCommandBus.publish(aCreateAccountCommandWith(createAccountRequestId, createAccountRequest.getInitialBalance()));
         accountRepository.save(anAccountCreationRequestedEventFor(createAccountRequestId, createAccountRequest.getInitialBalance()));
-        return new CreateAccountResponse(createAccountRequestId);
+        return aResponseForRequestWithIdOf(createAccountRequestId);
     }
 }
