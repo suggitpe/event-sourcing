@@ -1,17 +1,17 @@
 ext{
-    slf4jVersion = '1.7.5'
+    slf4jVersion = '1.7.21'
 
     libs = [
             slf4jApi: "org.slf4j:slf4j-api:$slf4jVersion",
-            logback: 'ch.qos.logback:logback-classic:1.2.3',
+            logback: 'ch.qos.logback:logback-classic:1.1.7',
             springBootStarter: 'org.springframework.boot:spring-boot-starter-web',
             inject: 'javax.inject:javax.inject:1',
-            guava: 'com.google.guava:guava:22.0',
+            guava: 'com.google.guava:guava:19.0',
 
             test: [
                     junit: 'junit:junit:4.12',
                     mockito: 'org.mockito:mockito-all:1.10.19',
-                    assertj: 'org.assertj:assertj-core:3.8.0',
+                    assertj: 'org.assertj:assertj-core:3.4.1',
                     springBootTestStarter: 'org.springframework.boot:spring-boot-starter-test'
                     
             ]

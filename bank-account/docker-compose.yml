@@ -2,7 +2,12 @@ version: '2'
 
 services:
   accounts-service:
-    build: ./accounts-repository
+    build: ./accounts-service
     network_mode: host
     ports:
       - 8801:8801
+  kafka-service:
+    build: ./kafka-repository
+    network_mode: host
+    ports:
+      - 2181:2181

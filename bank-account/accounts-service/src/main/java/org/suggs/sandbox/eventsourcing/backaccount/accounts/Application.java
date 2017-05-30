@@ -7,8 +7,6 @@ import org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.Accounts
 import org.suggs.sandbox.eventsourcing.backaccount.accounts.repository.AccountRepositoryConfiguration;
 
 @SpringBootApplication
-@Import({AccountsControllerConfiguration.class,
-        AccountRepositoryConfiguration.class})
 public class Application {
 
     public static void main(String[] args) {

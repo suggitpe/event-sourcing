@@ -1,11 +1,7 @@
 apply plugin: 'spring-boot'
 
 jar{
-    baseName = 'accounts-repository'
+    baseName = 'accounts-service'
     version = '0.0.1'
-}
-
-dependencies{
-    testCompile libs.test.springBootTestStarter
 }
 

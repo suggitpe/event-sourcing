@@ -1,17 +1,17 @@
-package org.suggs.sandbox.eventsourcing.backaccount.accounts.domain;
+package org.suggs.sandbox.eventsourcing.backaccount.accounts.domain.events;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class CreateAccountCommand implements Command {
+public class AccountCreationRequestedEvent implements Event {
     private final UUID createAccountRequestId;
     private final BigDecimal initialBalance;
 
-    public static CreateAccountCommand aCreateAccountCommandWith(UUID createAccountRequestId, BigDecimal initialBalance) {
-        return new CreateAccountCommand(createAccountRequestId, initialBalance);
+    public static AccountCreationRequestedEvent anAccountCreationRequestedEventFor(UUID createAccountRequestId, BigDecimal initialBalance) {
+        return new AccountCreationRequestedEvent(createAccountRequestId, initialBalance);
     }
 
-    private CreateAccountCommand(UUID createAccountRequestId, BigDecimal initialBalance) {
+    private AccountCreationRequestedEvent(UUID createAccountRequestId, BigDecimal initialBalance) {
         this.createAccountRequestId = createAccountRequestId;
         this.initialBalance = initialBalance;
     }
@@ -26,7 +26,7 @@ public class CreateAccountCommand implements Command {
 
     @Override
     public String toString() {
-        return "CreateAccountCommand{" +
+        return "AccountCreationRequestedEvent{" +
                 "createAccountRequestId=" + createAccountRequestId +
                 ", initialBalance=" + initialBalance +
                 '}';

@@ -8,7 +8,7 @@ allprojects { projects ->
             mavenCentral()
         }
         dependencies {
-            classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE'
+            classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE'
         }
     }
 
@@ -28,7 +28,7 @@ subprojects { projects ->
 
     apply plugin: 'java'
 
-    group = "org.suggs.sandbox.eventsourcing"
+    group = 'org.suggs.sandbox.eventsourcing'
 
     ext {
         sourceCompatibility = 1.8
@@ -42,11 +42,13 @@ subprojects { projects ->
 
     dependencies {
         compile libs.springBootStarter,
-                libs.inject
+                libs.inject,
+                libs.guava
 
         testCompile libs.test.junit,
                 libs.test.mockito,
-                libs.test.assertj
+                libs.test.assertj,
+                libs.test.springBootTestStarter
     }
 
 }
