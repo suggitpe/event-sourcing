@@ -156,7 +156,7 @@
 08:30:31.142 [main] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Searching for key 'spring.profiles.default' in [applicationConfigurationProperties]
 08:30:31.142 [main] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Could not find key 'spring.profiles.default' in any property source. Returning [null]
 08:30:31.142 [main] INFO  o.s.s.e.b.accounts.Application - No active profile set, falling back to default profiles: default
-08:30:31.143 [main] DEBUG o.s.boot.SpringApplication - Loading source class org.suggs.sandbox.eventsourcing.backaccount.accounts.Application
+08:30:31.143 [main] DEBUG o.s.boot.SpringApplication - Loading source class Application
 08:30:31.161 [main] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
 08:30:31.161 [main] DEBUG o.s.c.a.ClassPathBeanDefinitionScanner - JSR-330 'javax.inject.Named' annotation found and supported for component scanning
 08:30:31.241 [main] DEBUG o.s.b.c.c.ConfigFileApplicationListener - Loaded config file 'classpath:/application.yml'
@@ -878,7 +878,7 @@ java.lang.ClassNotFoundException: org.springframework.data.web.config.EnableSpri
 	at org.springframework.boot.SpringApplication.createAndRefreshContext(SpringApplication.java:361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
 	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:134)
-	at org.suggs.sandbox.eventsourcing.backaccount.accounts.Application.main(Application.java:17)
+	at Application.main(Application.java:17)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -917,7 +917,7 @@ java.lang.ClassNotFoundException: org.springframework.security.config.annotation
 	at org.springframework.boot.SpringApplication.createAndRefreshContext(SpringApplication.java:361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
 	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:134)
-	at org.suggs.sandbox.eventsourcing.backaccount.accounts.Application.main(Application.java:17)
+	at Application.main(Application.java:17)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -955,7 +955,7 @@ java.lang.ClassNotFoundException: org.springframework.data.web.config.EnableSpri
 	at org.springframework.boot.SpringApplication.createAndRefreshContext(SpringApplication.java:361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
 	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:134)
-	at org.suggs.sandbox.eventsourcing.backaccount.accounts.Application.main(Application.java:17)
+	at Application.main(Application.java:17)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -992,7 +992,7 @@ java.lang.ClassNotFoundException: org.springframework.security.config.annotation
 	at org.springframework.boot.SpringApplication.createAndRefreshContext(SpringApplication.java:361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
 	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:134)
-	at org.suggs.sandbox.eventsourcing.backaccount.accounts.Application.main(Application.java:17)
+	at Application.main(Application.java:17)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1790,9 +1790,9 @@ java.lang.ClassNotFoundException: org.springframework.security.config.annotation
 08:30:32.029 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'autoConfigurationReport'
 08:30:32.031 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'autoConfigurationReport'
 08:30:32.033 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'autoConfigurationReport'
-08:30:32.036 [main] DEBUG o.s.c.a.ConfigurationClassBeanDefinitionReader - Registering bean definition for @Bean method org.suggs.sandbox.eventsourcing.backaccount.accounts.bus.CommandBusConfiguration.createCommandBus()
-08:30:32.036 [main] DEBUG o.s.c.a.ConfigurationClassBeanDefinitionReader - Registering bean definition for @Bean method org.suggs.sandbox.eventsourcing.backaccount.accounts.commandhandler.CommandHandlerConfiguration.createCommandHandler()
-08:30:32.036 [main] DEBUG o.s.c.a.ConfigurationClassBeanDefinitionReader - Registering bean definition for @Bean method org.suggs.sandbox.eventsourcing.backaccount.accounts.repository.AccountRepositoryConfiguration.createRepository()
+08:30:32.036 [main] DEBUG o.s.c.a.ConfigurationClassBeanDefinitionReader - Registering bean definition for @Bean method CommandBusConfiguration.createCommandBus()
+08:30:32.036 [main] DEBUG o.s.c.a.ConfigurationClassBeanDefinitionReader - Registering bean definition for @Bean method CommandHandlerConfiguration.createCommandHandler()
+08:30:32.036 [main] DEBUG o.s.c.a.ConfigurationClassBeanDefinitionReader - Registering bean definition for @Bean method AccountRepositoryConfiguration.createRepository()
 08:30:32.038 [main] DEBUG o.s.c.a.ConfigurationClassBeanDefinitionReader - Registered bean definition for imported class 'org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfiguration'
 08:30:32.043 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.condition.BeanTypeRegistry'
 08:30:32.043 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.boot.autoconfigure.condition.BeanTypeRegistry'
@@ -1968,16 +1968,16 @@ java.lang.ClassNotFoundException: org.springframework.security.config.annotation
 08:30:32.156 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'autoConfigurationReport'
 08:30:32.157 [main] DEBUG o.s.c.a.ConfigurationClassBeanDefinitionReader - Registering bean definition for @Bean method org.springframework.boot.autoconfigure.web.ServerPropertiesAutoConfiguration.serverProperties()
 08:30:32.157 [main] DEBUG o.s.c.a.ConfigurationClassBeanDefinitionReader - Registering bean definition for @Bean method org.springframework.boot.autoconfigure.web.ServerPropertiesAutoConfiguration.duplicateServerPropertiesDetector()
-08:30:32.235 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced org.suggs.sandbox.eventsourcing.backaccount.accounts.Application; enhanced class name is: org.suggs.sandbox.eventsourcing.backaccount.accounts.Application$$EnhancerBySpringCGLIB$$8a7460d
-08:30:32.235 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'application' existing class 'org.suggs.sandbox.eventsourcing.backaccount.accounts.Application' with enhanced class 'org.suggs.sandbox.eventsourcing.backaccount.accounts.Application$$EnhancerBySpringCGLIB$$8a7460d'
-08:30:32.240 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced org.suggs.sandbox.eventsourcing.backaccount.accounts.bus.CommandBusConfiguration; enhanced class name is: org.suggs.sandbox.eventsourcing.backaccount.accounts.bus.CommandBusConfiguration$$EnhancerBySpringCGLIB$$ba25e410
-08:30:32.240 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'commandBusConfiguration' existing class 'org.suggs.sandbox.eventsourcing.backaccount.accounts.bus.CommandBusConfiguration' with enhanced class 'org.suggs.sandbox.eventsourcing.backaccount.accounts.bus.CommandBusConfiguration$$EnhancerBySpringCGLIB$$ba25e410'
-08:30:32.244 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced org.suggs.sandbox.eventsourcing.backaccount.accounts.commandhandler.CommandHandlerConfiguration; enhanced class name is: org.suggs.sandbox.eventsourcing.backaccount.accounts.commandhandler.CommandHandlerConfiguration$$EnhancerBySpringCGLIB$$86a70011
-08:30:32.244 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'commandHandlerConfiguration' existing class 'org.suggs.sandbox.eventsourcing.backaccount.accounts.commandhandler.CommandHandlerConfiguration' with enhanced class 'org.suggs.sandbox.eventsourcing.backaccount.accounts.commandhandler.CommandHandlerConfiguration$$EnhancerBySpringCGLIB$$86a70011'
-08:30:32.247 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced org.suggs.sandbox.eventsourcing.backaccount.accounts.repository.AccountRepositoryConfiguration; enhanced class name is: org.suggs.sandbox.eventsourcing.backaccount.accounts.repository.AccountRepositoryConfiguration$$EnhancerBySpringCGLIB$$f0303c80
-08:30:32.247 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'accountRepositoryConfiguration' existing class 'org.suggs.sandbox.eventsourcing.backaccount.accounts.repository.AccountRepositoryConfiguration' with enhanced class 'org.suggs.sandbox.eventsourcing.backaccount.accounts.repository.AccountRepositoryConfiguration$$EnhancerBySpringCGLIB$$f0303c80'
-08:30:32.250 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsControllerConfiguration; enhanced class name is: org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsControllerConfiguration$$EnhancerBySpringCGLIB$$873aa61a
-08:30:32.250 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'accountsControllerConfiguration' existing class 'org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsControllerConfiguration' with enhanced class 'org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsControllerConfiguration$$EnhancerBySpringCGLIB$$873aa61a'
+08:30:32.235 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced Application; enhanced class name is: Application$$EnhancerBySpringCGLIB$$8a7460d
+08:30:32.235 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'application' existing class 'Application' with enhanced class 'Application$$EnhancerBySpringCGLIB$$8a7460d'
+08:30:32.240 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced CommandBusConfiguration; enhanced class name is: CommandBusConfiguration$$EnhancerBySpringCGLIB$$ba25e410
+08:30:32.240 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'commandBusConfiguration' existing class 'CommandBusConfiguration' with enhanced class 'CommandBusConfiguration$$EnhancerBySpringCGLIB$$ba25e410'
+08:30:32.244 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced CommandHandlerConfiguration; enhanced class name is: CommandHandlerConfiguration$$EnhancerBySpringCGLIB$$86a70011
+08:30:32.244 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'commandHandlerConfiguration' existing class 'CommandHandlerConfiguration' with enhanced class 'CommandHandlerConfiguration$$EnhancerBySpringCGLIB$$86a70011'
+08:30:32.247 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced AccountRepositoryConfiguration; enhanced class name is: AccountRepositoryConfiguration$$EnhancerBySpringCGLIB$$f0303c80
+08:30:32.247 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'accountRepositoryConfiguration' existing class 'AccountRepositoryConfiguration' with enhanced class 'AccountRepositoryConfiguration$$EnhancerBySpringCGLIB$$f0303c80'
+08:30:32.250 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced AccountsControllerConfiguration; enhanced class name is: AccountsControllerConfiguration$$EnhancerBySpringCGLIB$$873aa61a
+08:30:32.250 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'accountsControllerConfiguration' existing class 'AccountsControllerConfiguration' with enhanced class 'AccountsControllerConfiguration$$EnhancerBySpringCGLIB$$873aa61a'
 08:30:32.253 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfiguration; enhanced class name is: org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfiguration$$EnhancerBySpringCGLIB$$eaf30a8
 08:30:32.253 [main] DEBUG o.s.c.a.ConfigurationClassPostProcessor - Replacing bean definition 'org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfiguration' existing class 'org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfiguration' with enhanced class 'org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfiguration$$EnhancerBySpringCGLIB$$eaf30a8'
 08:30:32.253 [main] DEBUG o.s.c.a.ConfigurationClassEnhancer - Successfully enhanced org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfiguration; enhanced class name is: org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfiguration$$EnhancerBySpringCGLIB$$eaf30a8
@@ -2437,17 +2437,17 @@ java.lang.ClassNotFoundException: org.springframework.security.config.annotation
 08:30:33.716 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'accountRepositoryConfiguration'
 08:30:33.716 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'accountsController'
 08:30:33.716 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'accountsController'
-08:30:33.721 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Registered injected element on class [org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsController]: AutowiredFieldElement for private org.suggs.sandbox.eventsourcing.backaccount.accounts.repository.AccountRepository org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsController.accountRepository
-08:30:33.721 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Registered injected element on class [org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsController]: AutowiredFieldElement for private org.suggs.sandbox.eventsourcing.backaccount.accounts.bus.CommandBus commandBus
+08:30:33.721 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Registered injected element on class [AccountsController]: AutowiredFieldElement for private AccountRepository AccountsController.accountRepository
+08:30:33.721 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Registered injected element on class [AccountsController]: AutowiredFieldElement for private CommandBus commandBus
 08:30:33.721 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean 'accountsController' to allow for resolving potential circular references
-08:30:33.723 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Processing injected element of bean 'accountsController': AutowiredFieldElement for private org.suggs.sandbox.eventsourcing.backaccount.accounts.repository.AccountRepository org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsController.accountRepository
+08:30:33.723 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Processing injected element of bean 'accountsController': AutowiredFieldElement for private AccountRepository AccountsController.accountRepository
 08:30:33.724 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'createRepository'
 08:30:33.724 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'createRepository'
 08:30:33.724 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'accountRepositoryConfiguration'
 08:30:33.729 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean 'createRepository' to allow for resolving potential circular references
 08:30:33.731 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'createRepository'
 08:30:33.731 [main] DEBUG o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowiring by type from bean name 'accountsController' to bean named 'createRepository'
-08:30:33.731 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Processing injected element of bean 'accountsController': AutowiredFieldElement for private org.suggs.sandbox.eventsourcing.backaccount.accounts.bus.CommandBus commandBus
+08:30:33.731 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Processing injected element of bean 'accountsController': AutowiredFieldElement for private CommandBus commandBus
 08:30:33.732 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'createCommandBus'
 08:30:33.732 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'createCommandBus'
 08:30:33.732 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'commandBusConfiguration'
@@ -2579,8 +2579,8 @@ java.lang.ClassNotFoundException: org.springframework.security.config.annotation
 08:30:34.074 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean 'requestMappingHandlerMapping' to allow for resolving potential circular references
 08:30:34.108 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'requestMappingHandlerMapping'
 08:30:34.108 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking for request mappings in application context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@522a17e0: startup date [Mon May 16 08:30:31 BST 2016]; root of context hierarchy
-08:30:34.125 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 1 request handler methods found on class org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsController: {public org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.RequestResponse org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsController.createAccount(org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.CreateAccountRequest)={[/accounts],methods=[POST]}}
-08:30:34.126 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/accounts],methods=[POST]}" onto public org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.RequestResponse org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.AccountsController.createAccount(org.suggs.sandbox.eventsourcing.backaccount.accounts.controllers.CreateAccountRequest)
+08:30:34.125 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 1 request handler methods found on class AccountsController: {public RequestResponse AccountsController.createAccount(CreateAccountRequest)={[/accounts],methods=[POST]}}
+08:30:34.126 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/accounts],methods=[POST]}" onto public RequestResponse AccountsController.createAccount(CreateAccountRequest)
 08:30:34.128 [main] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Searching for key 'error.path:/error' in [environmentProperties]
 08:30:34.128 [main] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Searching for key 'error.path:/error' in [servletConfigInitParams]
 08:30:34.128 [main] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Searching for key 'error.path:/error' in [servletContextInitParams]
