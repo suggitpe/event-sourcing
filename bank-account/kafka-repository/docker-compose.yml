@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  zookeeper:
+      build: ./zookeeper
+      network_mode: host
+      ports:
+        - 2181:2181
+  kafka:
+      build: ./kafka
+      network_mode: host
+      ports:
+        - 9092:9092

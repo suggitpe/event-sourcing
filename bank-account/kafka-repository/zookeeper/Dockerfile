@@ -7,7 +7,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
-## Add zookeeper to the image
 ENV ZOOKEEPER_VERSION=3.4.12
 ENV ZOOKEEPER_HOME=/opt/zookeeper-${ZOOKEEPER_VERSION}
 ENV ZOOKEEPER_DOWNLOAD_URL=http://mirrors.ukfast.co.uk/sites/ftp.apache.org/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/zookeeper-${ZOOKEEPER_VERSION}.tar.gz
@@ -18,17 +17,13 @@ RUN echo "Installing Zookeeper from ${ZOOKEEPER_DOWNLOAD_URL}" && \
 	ls -l ${ZOOKEEPER_TMP} && \
 	tar --extract --file=${ZOOKEEPER_TMP} --gzip --directory=/opt && \
 	rm ${ZOOKEEPER_TMP}
-ADD conf/zoo.cfg ${ZOOKEEPER_HOME}/conf
+
+ADD zoo.cfg ${ZOOKEEPER_HOME}/conf
+ADD start-zookeeper.sh /usr/bin/start-zookeeper.sh
+ADD zookeeper-supervisord.conf /etc/supervisor/conf.d/
 RUN ls -alF ${ZOOKEEPER_HOME}
 
-## Add Kafka to the image
-ENV SCALA_VERSION 2.12
-ENV KAFKA_VERSION 1.1.0
-ENV KAFKA_HOME /opt/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION"
-ENV KAFKA_DOWNLOAD_URL http://apache.mirrors.nublue.co.uk/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
-env KAFKA_TMP /tmp/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION".tgz
+EXPOSE 2181
 
-RUN echo "Installing Kafka from ${KAFKA_DOWNLOAD_URL}" && \
-	wget -q $KAFKA_DOWNLOAD_URL -O ${KAFKA_TMP} && \
-	tar --extract --file ${KAFKA_TMP} --gzip -C /opt && \
-	rm ${KAFKA_TMP}
+CMD ["supervisord", "-n"]
+
