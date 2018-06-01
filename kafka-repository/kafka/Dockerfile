@@ -19,6 +19,8 @@ RUN echo "Installing Kafka from ${KAFKA_DOWNLOAD_URL}" && \
 	tar --extract --file ${KAFKA_TMP} --gzip -C /opt && \
 	rm ${KAFKA_TMP}
 
+ADD start-kafka.sh /usr/bin/start-kafka.sh
+ADD kafka-supervisord.conf /etc/supervisor/conf.d/
 RUN ls -alF ${KAFKA_HOME}
 
 EXPOSE 9092
