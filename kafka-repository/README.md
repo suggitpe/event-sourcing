@@ -3,8 +3,20 @@
 ## Run all of it
  - docker-compose up -d
 
-## Zookeeper
+## Kafka cluster
  - should run from the box as is
- - `docker build -t suggitpe/zookeeper zookeeper`
- - `docker run --detach=true --publish=2181:2181 --net=host suggitpe/zookeeper`
- - `docker run --detach=true --publish=9092:9092 --net=host suggitpe/kafka`
+ - `docker-compose build` # build 
+ - `docker run -it <container ref> bash` # run a bash shell on a container itself
+ - `docker-compose run zookeeper` # run zookeeper in the foreground
+ - `docker-compose run kafka` # run kafka in the foreground
+ - `docker-compose up -d` # run all in the background
+
+## Kafka stuff
+All these are based on being ssh'd onto the kafka container
+ - `./kafka-topics.sh --list --zookeeper localhost:2181` # list all the topics
+ - `./kafka-topics.sh --zookeeper localhost:2181 --create --replication-factor 1 --partitions 1 --topic test` # create a test topic called test
+ - `./kafka-topics.sh --describe --zookeeper localhost:2181 --topic test` # describe the topic
+
+## Test the broker
+ - `./kafka-console-producer.sh --broker-list localhost:9092 --topic test` # enter this and write some messages
+ - `./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning`

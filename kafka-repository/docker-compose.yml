@@ -9,5 +9,8 @@ services:
   kafka:
       build: ./kafka
       network_mode: host
+      environment:
+        KAFKA_ADVERTISED_HOST_NAME: localhost
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       ports:
         - 9092:9092
