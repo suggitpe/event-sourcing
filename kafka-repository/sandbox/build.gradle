@@ -1,7 +1,6 @@
 apply plugin: 'org.springframework.boot'
 
 jar{
-    baseName = 'accounts-service'
+    baseName = 'kafka-sandbox'
     version = '0.0.1'
 }
-

@@ -10,7 +10,7 @@ allprojects { projects ->
             mavenCentral()
         }
         dependencies {
-            classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE'
+            classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE'
         }
     }
 
@@ -34,18 +34,13 @@ subprojects { projects ->
     }
 
     dependencies {
-        compile libs.springBootStarter,
+        compile libs.springBootStarterWeb,
                 libs.inject,
                 libs.guava
 
         testCompile libs.test.junit,
                 libs.test.mockito,
-                libs.test.assertj,
-                libs.test.springBootTestStarter
+                libs.test.assertj
     }
 
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.13'
 }
