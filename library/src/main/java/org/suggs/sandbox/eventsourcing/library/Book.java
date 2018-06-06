@@ -19,7 +19,7 @@ public class Book {
     private long expectedLoanLength;
 
     public Book(BookId id, Collection<Event> events) {
-        this.id = id;
+        this.id = id;,
         events.forEach(event -> apply(event));
     }
 
