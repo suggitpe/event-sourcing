@@ -14,7 +14,7 @@ allprojects { projects ->
         }
     }
 
-    apply from: "$rootDir/gradle/libraries.gradle"
+    apply from: "$rootDir/libraries.gradle"
 }
 
 subprojects { projects ->
@@ -40,7 +40,8 @@ subprojects { projects ->
 
         testCompile libs.test.junit,
                 libs.test.mockito,
-                libs.test.assertj
+                libs.test.assertj,
+                libs.test.springBootStarterTest
     }
 
 }

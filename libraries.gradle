@@ -7,11 +7,13 @@ ext{
             springBootStarterWeb: 'org.springframework.boot:spring-boot-starter-web:2.0.2.RELEASE',
             inject: 'javax.inject:javax.inject:1',
             guava: 'com.google.guava:guava:22.0',
+            kafkaClients: 'org.apache.kafka:kafka-clients:1.1.0',
 
             test: [
                     junit: 'junit:junit:4.12',
                     mockito: 'org.mockito:mockito-all:1.10.19',
-                    assertj: 'org.assertj:assertj-core:3.8.0'
+                    assertj: 'org.assertj:assertj-core:3.8.0',
+                    springBootStarterTest: 'org.springframework.boot:spring-boot-starter-test:2.0.2.RELEASE'
             ]
     ]
 }
