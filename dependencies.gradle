@@ -1,0 +1,18 @@
+ext{
+    
+    libs = [
+            slf4jApi: 'org.slf4j:slf4j-api:1.7.25',
+            logback: 'ch.qos.logback:logback-classic:1.2.3',
+            springBootStarterWeb: 'org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE',
+            inject: 'javax.inject:javax.inject:1',
+            guava: 'com.google.guava:guava:22.0',
+            kafkaClients: 'org.apache.kafka:kafka-clients:1.1.0',
+
+            test: [
+                    junit: 'junit:junit:4.12',
+                    mockito: 'org.mockito:mockito-core:2.23.0',
+                    assertj: 'org.assertj:assertj-core:3.11.1',
+                    springBootStarterTest: 'org.springframework.boot:spring-boot-starter-test:2.0.3.RELEASE'
+            ]
+    ]
+}

@@ -14,7 +14,7 @@ allprojects { projects ->
         }
     }
 
-    apply from: "$rootDir/libraries.gradle"
+    apply from: "$rootDir/dependencies.gradle"
 }
 
 subprojects { projects ->
