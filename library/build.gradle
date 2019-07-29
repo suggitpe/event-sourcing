@@ -1,6 +1,0 @@
-apply plugin: 'org.springframework.boot'
-
-jar{
-    baseName = 'library'
-    version = '0.0.1'
-}

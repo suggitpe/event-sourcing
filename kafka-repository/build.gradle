@@ -1,0 +1,9 @@
+jar {
+    archiveBaseName = 'kafka-sandbox'
+    version = '0.0.1'
+}
+
+dependencies {
+    implementation libs.kafkaClients,
+            libs.springBootStarterWeb
+}

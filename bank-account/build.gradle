@@ -1,0 +1,13 @@
+jar {
+    archiveBaseName = 'bank-account-service'
+    version = '0.0.1'
+}
+
+dependencies {
+    implementation libs.kafkaClients,
+            libs.springBootStarterWeb,
+            libs.guava,
+            libs.inject
+
+    testImplementation libs.test.springBootStarterTest
+}

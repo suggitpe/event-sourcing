@@ -1,2 +1,2 @@
-include 'kafka-repository:sandbox',
-		'bank-account:accounts-service'
+include 'kafka-repository',
+		'bank-account'
