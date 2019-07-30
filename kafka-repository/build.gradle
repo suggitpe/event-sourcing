@@ -5,5 +5,7 @@ jar {
 
 dependencies {
     implementation libs.kafkaClients,
-            libs.springBootStarterWeb
+            libs.springBootStarterWeb,
+            libs.swagger,
+            libs.swaggerUI
 }

@@ -1,4 +1,4 @@
-FROM suggitpe/18.04-orajava8-base
+FROM suggitpe/19.04-openjdk11-base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
-ENV ZOOKEEPER_VERSION=3.4.12
+ENV ZOOKEEPER_VERSION=3.4.14
 ENV ZOOKEEPER_HOME=/opt/zookeeper-${ZOOKEEPER_VERSION}
 ENV ZOOKEEPER_DOWNLOAD_URL=http://mirrors.ukfast.co.uk/sites/ftp.apache.org/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/zookeeper-${ZOOKEEPER_VERSION}.tar.gz
 ENV ZOOKEEPER_TMP=/tmp/zookeeper-${ZOOKEEPER_VERSION}.tgz

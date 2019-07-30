@@ -20,9 +20,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import static org.suggs.sandbox.eventsourcing.kafka.KafkaConsumerBuilder.aKafkaConsumer;
-import static org.suggs.sandbox.eventsourcing.kafka.KafkaProducerBuilder.aKafkaProducer;
-
 public class KafkaConnectivityTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(KafkaConnectivityTest.class);
@@ -34,14 +31,14 @@ public class KafkaConnectivityTest {
 
     @BeforeEach
     public void onSetup() {
-        producer = aKafkaProducer()
+        producer = KafkaProducerBuilder.Companion.aKafkaProducer()
                 .connectedTo(KAFKA_URL)
                 .knownAs("TestProducer")
                 .usingKeySerializer(LongSerializer.class.getName())
                 .usingValueSerializer(StringSerializer.class.getName())
                 .build();
 
-        consumer = aKafkaConsumer()
+        consumer = KafkaConsumerBuilder.Companion.aKafkaConsumer()
                 .connectedTo(KAFKA_URL)
                 .knownAs("TestConsumer")
                 .usingKeyDeserializer(LongDeserializer.class.getName())
