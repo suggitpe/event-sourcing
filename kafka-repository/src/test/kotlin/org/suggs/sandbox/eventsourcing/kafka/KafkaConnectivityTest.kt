@@ -11,14 +11,13 @@ import org.apache.kafka.common.serialization.StringSerializer
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.slf4j.LoggerFactory
 import org.slf4j.LoggerFactory.getLogger
 import org.suggs.sandbox.eventsourcing.kafka.KafkaConsumerBuilder.Companion.aKafkaConsumer
 import org.suggs.sandbox.eventsourcing.kafka.KafkaProducerBuilder.Companion.aKafkaProducer
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
-class KafkaConnectivity {
+class KafkaConnectivityTest {
 
     companion object {
         private const val KAFKA_URL = "localhost:9092"
@@ -65,7 +64,7 @@ class KafkaConnectivity {
     @Test
     fun `connects to kafka and writes a message asynchronously`() {
 
-        fun manageResponse(metadata: RecordMetadata?, exception: Exception, latch: CountDownLatch) {
+        fun manageResponse(metadata: RecordMetadata?, exception: Exception?, latch: CountDownLatch) {
             if (metadata != null) {
                 LOG.debug(metadata.toString())
             }

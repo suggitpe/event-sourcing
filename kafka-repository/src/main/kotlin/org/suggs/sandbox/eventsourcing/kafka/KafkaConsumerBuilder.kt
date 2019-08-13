@@ -23,7 +23,7 @@ class KafkaConsumerBuilder {
         return KafkaConsumer(properties)
     }
 
-    private fun addPropertiesAndReturn(aKey: String, aValue: String): KafkaConsumerBuilder {
+    private fun addPropertiesAndReturn(aKey: String, aValue: String?): KafkaConsumerBuilder {
         properties[aKey] = aValue
         return this
     }
