@@ -1,2 +1,1 @@
-include 'kafka-repository',
-		'bank-account'
+include 'bank-account'
