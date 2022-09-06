@@ -1,18 +1,18 @@
 package org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.events.AccountCreationRequestedEvent;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.events.AccountCreationRequestedEvent.anAccountCreationRequestedEventFor;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = AccountRepositoryConfiguration.class)
 public class AccountRepositoryTest {
 
@@ -24,7 +24,7 @@ public class AccountRepositoryTest {
 
     @Test
     public void savesEventsToTheRepository() {
-        accountRepository.save(AccountCreationRequestedEvent.anAccountCreationRequestedEventFor(requestId, ONE_THOUSAND));
+        accountRepository.save(anAccountCreationRequestedEventFor(requestId, ONE_THOUSAND));
         assertThat(accountRepository.size()).isEqualTo(1);
     }
 

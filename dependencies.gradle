@@ -1,7 +1,8 @@
 ext {
 
-    kotlinVersion = '1.7.0'
-    springBootVersion = '2.6.6'
+
+    kotlinVersion = '1.7.10'
+    springBootVersion = '2.7.3'
 
     libs = [
 
@@ -11,20 +12,21 @@ ext {
             springBootStarterWeb      : "org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
             springBootThymeLeafStarter: "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}",
 
-            springDoc                 : 'org.springdoc:springdoc-openapi-ui:1.6.6',
+            springDoc                 : 'org.springdoc:springdoc-openapi-ui:1.6.11',
 
-            slf4j                     : 'org.slf4j:slf4j-api:1.7.26',
-            logback                   : 'ch.qos.logback:logback-classic:1.2.3',
+            slf4j                     : 'org.slf4j:slf4j-api:1.7.36',
+            logback                   : 'ch.qos.logback:logback-classic:1.2.11',
 
-            kafkaClients              : 'org.apache.kafka:kafka-clients:1.1.0',
-            guava                     : 'com.google.guava:guava:22.0',
+            kafkaClients              : 'org.apache.kafka:kafka-clients:3.2.1',
+            guava                     : 'com.google.guava:guava:31.1-jre',
             inject                    : 'javax.inject:javax.inject:1',
+            validation                : 'javax.validation:validation-api:1.1.0.Final',
 
             test                      : [
-                    junitApi             : 'org.junit.jupiter:junit-jupiter-api:5.5.1',
-                    junitEngine          : 'org.junit.jupiter:junit-jupiter-engine:5.5.1',
-                    mockito              : 'org.mockito:mockito-core:3.0.0',
-                    kotestAssertions     : 'io.kotest:kotest-assertions-core:5.2.1',
+                    junitApi             : 'org.junit.jupiter:junit-jupiter-api:5.9.0',
+                    junitEngine          : 'org.junit.jupiter:junit-jupiter-engine:5.9.0',
+                    mockito              : 'org.mockito:mockito-core:4.7.0',
+                    kotestAssertions     : 'io.kotest:kotest-assertions-core:5.4.2',
 
                     springBootStarterTest: "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
             ]

@@ -1,11 +1,11 @@
 package org.suggs.sandbox.eventsourcing.bankaccount.accounts;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandlerConfiguration;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.AccountRepository;
@@ -16,7 +16,7 @@ import java.util.UUID;
 
 import static org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.commands.CreateAccountCommand.aCreateAccountCommandWith;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {CommandHandlerConfiguration.class})
 public class CreateNewAccountTest {
 
