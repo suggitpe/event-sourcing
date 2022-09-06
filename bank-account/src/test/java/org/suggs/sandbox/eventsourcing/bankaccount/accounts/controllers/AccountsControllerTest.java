@@ -4,8 +4,10 @@ import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.web.SpringBootMockServletContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -24,7 +26,9 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = MOCK)
-@ContextConfiguration(classes = AccountControllerTestConfiguration.class)
+@ContextConfiguration(classes = AccountsControllerConfig.class)
+@EnableAutoConfiguration
+@ComponentScan
 public class AccountsControllerTest {
 
     @Inject

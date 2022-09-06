@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'adpt'
+          distribution: 'adopt'
 
       # Runs a set of commands using the runners shell
       - name: Validate Gradle wrapper
