@@ -8,11 +8,11 @@
     </appender>
 
     <logger name="root" level="INFO"/>
+    <logger name="org.suggs" level="DEBUG"/>
     <logger name="org.springframework" level="INFO"/>
     <logger name="org.hibernate" level="WARN"/>
-    <logger name="au.com.dius.pact" level="DEBUG"/>
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
 

@@ -7,7 +7,7 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandlerConfiguration
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.commands.CreateAccountCommand
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.commands.CreateAccountCommand.aCreateAccountCommandWith
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.AccountRepository
 import java.math.BigDecimal
 import java.util.*
@@ -24,14 +24,14 @@ class CreateNewAccountTest {
     }
 
     @Inject
-    lateinit var commandBus: CommandBus
+    private lateinit var commandBus: CommandBus
 
     @Inject
-    lateinit var accountRepository: AccountRepository
+    private lateinit var accountRepository: AccountRepository
 
     @Test
-    fun createsANewAccountWhenRequested() {
-        commandBus.publish(CreateAccountCommand.aCreateAccountCommandWith(requestId, initialBalance))
+    fun `creates a new account when requested`() {
+        commandBus.publish(aCreateAccountCommandWith(requestId, initialBalance))
         log.debug(accountRepository.toString())
     }
 

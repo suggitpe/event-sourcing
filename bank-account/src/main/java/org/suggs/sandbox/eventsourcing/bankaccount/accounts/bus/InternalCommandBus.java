@@ -17,7 +17,7 @@ public class InternalCommandBus implements CommandBus {
 
     public void publish(Command aCommand) {
         eventBus.post(aCommand);
-        LOG.debug("---> someone just published a command:" + aCommand.toString());
+        LOG.debug("---> someone just published a command:" + aCommand);
     }
 
     public void registerSubscriber(CommandHandler aCommandHandler) {

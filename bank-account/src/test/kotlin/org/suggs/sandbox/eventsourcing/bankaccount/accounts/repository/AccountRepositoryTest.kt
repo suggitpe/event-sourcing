@@ -19,10 +19,10 @@ class AccountRepositoryTest {
     }
 
     @Inject
-    lateinit var accountRepository: AccountRepository
+    private lateinit var accountRepository: AccountRepository
 
     @Test
-    fun savesEventsToTheRepository() {
+    fun `saves events to the repository`() {
         accountRepository.save(AccountCreationRequestedEvent.anAccountCreationRequestedEventFor(requestId, ONE_THOUSAND))
         accountRepository.size() shouldBe 1
     }
