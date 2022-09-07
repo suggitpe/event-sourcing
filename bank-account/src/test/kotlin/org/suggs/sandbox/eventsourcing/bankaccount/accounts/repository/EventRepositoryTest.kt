@@ -5,25 +5,25 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.events.AccountCreationRequestedEvent
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.events.AccountCreationRequestedEvent.anAccountCreationRequestedEventFor
 import java.math.BigDecimal.valueOf
 import java.util.*
 import javax.inject.Inject
 
 @ExtendWith(SpringExtension::class)
-@ContextConfiguration(classes = [AccountRepositoryConfiguration::class])
-class AccountRepositoryTest {
+@ContextConfiguration(classes = [EventRepositoryConfig::class])
+class EventRepositoryTest {
     companion object {
         private val requestId = UUID.randomUUID()
         private val ONE_THOUSAND = valueOf(1000.00)
     }
 
     @Inject
-    private lateinit var accountRepository: AccountRepository
+    private lateinit var eventRepository: EventRepository
 
     @Test
     fun `saves events to the repository`() {
-        accountRepository.save(AccountCreationRequestedEvent.anAccountCreationRequestedEventFor(requestId, ONE_THOUSAND))
-        accountRepository.size() shouldBe 1
+        eventRepository.save(anAccountCreationRequestedEventFor(requestId, ONE_THOUSAND))
+        eventRepository.size() shouldBe 1
     }
 }

@@ -4,13 +4,13 @@ import com.google.common.eventbus.EventBus
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.InternalCommandBus
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.InMemoryAccountRepository
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.InMemoryEventRepository
 
 @Configuration
 open class AccountsControllerConfig {
 
     @Bean
-    open fun accountsRepository() = InMemoryAccountRepository()
+    open fun accountsRepository() = InMemoryEventRepository()
 
     @Bean
     open fun accountBus() = InternalCommandBus(EventBus("Test Event Bus"))

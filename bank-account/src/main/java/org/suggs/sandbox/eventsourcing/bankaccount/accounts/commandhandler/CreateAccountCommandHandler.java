@@ -7,7 +7,7 @@ import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.commands.ConfirmNewAccountToClientCommand;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.commands.CreateAccountCommand;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.events.AccountCreatedEvent;
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.AccountRepository;
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -17,11 +17,11 @@ public class CreateAccountCommandHandler implements CommandHandler<CreateAccount
     private Logger LOG = LoggerFactory.getLogger(CreateAccountCommandHandler.class);
 
     private final CommandBus commandBus;
-    private final AccountRepository accountRepository;
+    private final EventRepository eventRepository;
 
-    public CreateAccountCommandHandler(CommandBus commandBus, AccountRepository accountRepository) {
+    public CreateAccountCommandHandler(CommandBus commandBus, EventRepository eventRepository) {
         this.commandBus = commandBus;
-        this.accountRepository = accountRepository;
+        this.eventRepository = eventRepository;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class CreateAccountCommandHandler implements CommandHandler<CreateAccount
     public void handle(CreateAccountCommand aCommand) {
         UUID newAccountNumber = createNewAccount(aCommand.getCreateAccountRequestId(), aCommand.getInitialBalance());
         commandBus.publish(new ConfirmNewAccountToClientCommand(aCommand.getCreateAccountRequestId(), newAccountNumber));
-        accountRepository.save(new AccountCreatedEvent(aCommand.getCreateAccountRequestId(), newAccountNumber, aCommand.getInitialBalance()));
+        eventRepository.save(new AccountCreatedEvent(aCommand.getCreateAccountRequestId(), newAccountNumber, aCommand.getInitialBalance()));
     }
 
     private UUID createNewAccount(UUID requestId, BigDecimal anInitialBalance) {

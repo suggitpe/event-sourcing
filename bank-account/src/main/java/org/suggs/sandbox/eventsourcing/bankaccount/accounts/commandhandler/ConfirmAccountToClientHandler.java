@@ -6,17 +6,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.commands.ConfirmNewAccountToClientCommand;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.events.ConfirmedAccountNumberToClientEvent;
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.AccountRepository;
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository;
 
 import java.util.UUID;
 
 public class ConfirmAccountToClientHandler implements CommandHandler<ConfirmNewAccountToClientCommand> {
 
     private static final Logger LOG = LoggerFactory.getLogger(ConfirmAccountToClientHandler.class);
-    private AccountRepository accountRepository;
+    private EventRepository eventRepository;
 
-    public ConfirmAccountToClientHandler(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
+    public ConfirmAccountToClientHandler(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class ConfirmAccountToClientHandler implements CommandHandler<ConfirmNewA
     @AllowConcurrentEvents
     public void handle(ConfirmNewAccountToClientCommand aCommand) {
         confirmNewAccountNumberToClient(aCommand.getRequestId(), aCommand.getAccountNumber());
-        accountRepository.save(new ConfirmedAccountNumberToClientEvent(aCommand.getRequestId(), aCommand.getAccountNumber()));
+        eventRepository.save(new ConfirmedAccountNumberToClientEvent(aCommand.getRequestId(), aCommand.getAccountNumber()));
     }
 
     private void confirmNewAccountNumberToClient(UUID requestId, UUID accountNumber) {
