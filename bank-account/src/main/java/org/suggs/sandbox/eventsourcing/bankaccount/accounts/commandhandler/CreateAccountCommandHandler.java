@@ -4,15 +4,15 @@ import com.google.common.eventbus.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus;
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.commands.ConfirmNewAccountToClientCommand;
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.commands.CreateAccountCommand;
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.events.AccountCreatedEvent;
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.ConfirmAccountToClient;
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateAccount;
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.AccountCreated;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class CreateAccountCommandHandler implements CommandHandler<CreateAccountCommand> {
+public class CreateAccountCommandHandler implements CommandHandler<CreateAccount> {
 
     private Logger LOG = LoggerFactory.getLogger(CreateAccountCommandHandler.class);
 
@@ -26,10 +26,10 @@ public class CreateAccountCommandHandler implements CommandHandler<CreateAccount
 
     @Override
     @Subscribe
-    public void handle(CreateAccountCommand aCommand) {
-        UUID newAccountNumber = createNewAccount(aCommand.getCreateAccountRequestId(), aCommand.getInitialBalance());
-        commandBus.publish(new ConfirmNewAccountToClientCommand(aCommand.getCreateAccountRequestId(), newAccountNumber));
-        eventRepository.save(new AccountCreatedEvent(aCommand.getCreateAccountRequestId(), newAccountNumber, aCommand.getInitialBalance()));
+    public void handle(CreateAccount aCommand) {
+        UUID newAccountNumber = createNewAccount(aCommand.getRequestId(), aCommand.getInitialBalance());
+        commandBus.publish(ConfirmAccountToClient.Companion.confirmAccountToClient(aCommand.getRequestId(), newAccountNumber));
+        eventRepository.save(AccountCreated.Companion.anAccountCreatedEvent(aCommand.getRequestId(), newAccountNumber, aCommand.getInitialBalance()));
     }
 
     private UUID createNewAccount(UUID requestId, BigDecimal anInitialBalance) {

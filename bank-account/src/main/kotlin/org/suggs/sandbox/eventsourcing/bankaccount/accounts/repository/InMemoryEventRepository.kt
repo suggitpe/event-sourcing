@@ -1,6 +1,6 @@
 package org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository
 
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.events.Event
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.Event
 import java.util.*
 import java.util.concurrent.LinkedBlockingQueue
 

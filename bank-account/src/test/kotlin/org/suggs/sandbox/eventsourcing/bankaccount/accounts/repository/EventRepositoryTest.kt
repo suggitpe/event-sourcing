@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.events.AccountCreationRequestedEvent.anAccountCreationRequestedEventFor
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.AccountCreationRequested.Companion.anAccountCreationRequestedEventFor
 import java.math.BigDecimal.valueOf
 import java.util.*
 import javax.inject.Inject

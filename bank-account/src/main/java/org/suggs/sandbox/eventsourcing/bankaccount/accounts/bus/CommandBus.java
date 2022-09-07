@@ -1,7 +1,7 @@
 package org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus;
 
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandler;
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.commands.Command;
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.Command;
 
 public interface CommandBus {
 

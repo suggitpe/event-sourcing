@@ -4,7 +4,7 @@ import com.google.common.eventbus.EventBus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandler;
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.commands.Command;
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.Command;
 
 public class InternalCommandBus implements CommandBus {
 
