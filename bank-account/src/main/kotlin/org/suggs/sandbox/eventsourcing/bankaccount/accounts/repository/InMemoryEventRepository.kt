@@ -15,4 +15,8 @@ class InMemoryEventRepository : EventRepository {
     override fun size(): Int {
         return eventQueue.size
     }
+
+    override fun head(): Event {
+        return eventQueue.element()
+    }
 }

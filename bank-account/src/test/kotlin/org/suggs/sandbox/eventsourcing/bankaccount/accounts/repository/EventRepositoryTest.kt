@@ -1,6 +1,7 @@
 package org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository
 
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.test.context.ContextConfiguration
@@ -25,5 +26,6 @@ class EventRepositoryTest {
     fun `saves events to the repository`() {
         eventRepository.save(anAccountCreationRequestedEventFor(requestId, ONE_THOUSAND))
         eventRepository.size() shouldBe 1
+        eventRepository.head() shouldNotBe null
     }
 }

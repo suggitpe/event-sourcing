@@ -28,8 +28,8 @@ public class CreateAccountCommandHandler implements CommandHandler<CreateAccount
     @Subscribe
     public void handle(CreateAccount aCommand) {
         UUID newAccountNumber = createNewAccount(aCommand.getRequestId(), aCommand.getInitialBalance());
-        commandBus.publish(ConfirmAccountToClient.Companion.confirmAccountToClient(aCommand.getRequestId(), newAccountNumber));
         eventRepository.save(AccountCreated.Companion.anAccountCreatedEvent(aCommand.getRequestId(), newAccountNumber, aCommand.getInitialBalance()));
+        commandBus.publish(ConfirmAccountToClient.Companion.confirmAccountToClient(aCommand.getRequestId(), newAccountNumber));
     }
 
     private UUID createNewAccount(UUID requestId, BigDecimal anInitialBalance) {

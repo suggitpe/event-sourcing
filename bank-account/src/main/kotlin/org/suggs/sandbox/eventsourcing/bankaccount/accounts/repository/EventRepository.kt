@@ -8,4 +8,5 @@ interface EventRepository {
 
     fun size(): Int
 
+    fun head(): Event
 }

@@ -4,14 +4,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus;
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBusConfiguration;
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBusConfig;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository;
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepositoryConfig;
 
 import javax.inject.Inject;
 
 @Configuration
-@Import({CommandBusConfiguration.class, EventRepositoryConfig.class})
+@Import({CommandBusConfig.class, EventRepositoryConfig.class})
 public class CommandHandlerConfiguration {
 
     @Inject
