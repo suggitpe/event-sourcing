@@ -4,6 +4,6 @@ import java.util.*
 
 data class AccountConfirmedToClient(val requestId: UUID, val accountNumber: UUID): Event {
     companion object {
-        fun anAccountConfirmedToClient(requestId: UUID, accountNumber: UUID) = AccountConfirmedToClient(requestId, accountNumber)
+        fun accountConfirmedToClient(requestId: UUID, accountNumber: UUID) = AccountConfirmedToClient(requestId, accountNumber)
     }
 }

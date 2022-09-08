@@ -4,5 +4,5 @@ import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.Comma
 
 interface CommandHandler<T : Command> {
 
-    fun handle(aCommand: T)
+    fun handle(command: T)
 }
