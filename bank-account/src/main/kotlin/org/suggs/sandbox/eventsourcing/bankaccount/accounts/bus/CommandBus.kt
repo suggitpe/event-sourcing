@@ -5,7 +5,7 @@ import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.Comma
 
 interface CommandBus {
 
-    fun registerSubscriber(aCommand: CommandHandler<*>)
+    fun registerSubscriber(aCommandHandler: CommandHandler<*>)
 
     fun publish(aCommand: Command)
 }
