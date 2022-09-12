@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.controllers.RequestResponse.aResponseForRequestWithIdOf
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateAccount
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository
 import java.util.*
@@ -24,7 +23,7 @@ class AccountController {
     fun createAccount(@Validated @RequestBody request: CreateAccountRequest): RequestResponse {
         var requestId = UUID.randomUUID()
         commandBus.publish(CreateAccount(requestId, request.initialBalance))
-        return aResponseForRequestWithIdOf(requestId)
+        return RequestResponse(requestId)
     }
 
 }
