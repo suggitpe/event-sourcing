@@ -8,7 +8,8 @@ dependencies {
             libs.springBootStarterWeb,
             libs.guava,
             libs.inject,
-            libs.validation
+            libs.validation,
+            libs.jacksonKotlin
 
     testImplementation libs.test.springBootStarterTest
 }

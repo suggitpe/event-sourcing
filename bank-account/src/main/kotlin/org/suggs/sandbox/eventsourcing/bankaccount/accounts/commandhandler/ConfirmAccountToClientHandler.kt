@@ -22,6 +22,6 @@ class ConfirmAccountToClientHandler(private val eventRepo: EventRepository) : Co
     }
 
     private fun confirmAccountToClient(accountNumber: UUID) {
-        log.info("Emailing client to inform that we have created a new account for them")
+        log.info("Emailing client to inform that we have created a new account [$accountNumber] for them")
     }
 }

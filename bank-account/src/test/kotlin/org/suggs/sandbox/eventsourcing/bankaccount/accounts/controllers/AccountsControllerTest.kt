@@ -44,7 +44,7 @@ class AccountsControllerTest {
     @Test
     fun `creates a create account request`() {
         mockMvc.perform(
-            post("/accounts")
+            post("/account")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"initialBalance\":\"500\"}")
                 .accept(MediaType.APPLICATION_JSON)

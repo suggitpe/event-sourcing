@@ -3,7 +3,6 @@ ext {
 
     kotlinVersion = '1.7.10'
     springBootVersion = '2.7.3'
-
     libs = [
 
             kotlin                    : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
@@ -11,6 +10,7 @@ ext {
 
             springBootStarterWeb      : "org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
             springBootThymeLeafStarter: "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}",
+            jacksonKotlin             : 'com.fasterxml.jackson.module:jackson-module-kotlin',
 
             springDoc                 : 'org.springdoc:springdoc-openapi-ui:1.6.11',
 
@@ -31,6 +31,7 @@ ext {
                     springBootStarterTest: "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
             ]
     ]
+
 
     gradlePlugins = [
             kotlin    : "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}",
