@@ -5,11 +5,13 @@ import org.slf4j.LoggerFactory
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandler
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.Command
 
-class QueuingCommandBus(private val eventBus: EventBus) : CommandBus {
+class QueuingCommandBus : CommandBus {
 
-    companion object{
+    companion object {
         private val log = LoggerFactory.getLogger(this::class.java)
     }
+
+    private val eventBus: EventBus = EventBus("Event Bus for commands")
 
     override fun registerSubscriber(aCommandHandler: CommandHandler<*>) {
         log.debug("Registering CommandHandler $aCommandHandler")

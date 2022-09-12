@@ -46,7 +46,7 @@ class AccountsControllerTest {
         mockMvc.perform(
             post("/account")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"initialBalance\":\"500\"}")
+                .content("{\"initialBalance\":\"500\", \"customerId\":\"840f7419-bbba-47b2-80ad-4f8afc16d8f6\"}".trimMargin())
                 .accept(MediaType.APPLICATION_JSON)
         ).andExpect(status().isOk)
     }

@@ -9,20 +9,19 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandlerConfig
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateNewAccount
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateNewCustomer
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository
-import java.math.BigDecimal
+import java.time.LocalDate
 import java.util.*
 import javax.inject.Inject
 
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [CommandHandlerConfig::class])
-class CreateNewAccountTest {
+class CreateNewCustomerTest {
 
     companion object {
         private val log = LoggerFactory.getLogger(this::class.java)
         private val requestId = UUID.randomUUID()
-        private val initialBalance = BigDecimal.valueOf(100.0)
     }
 
     @Inject
@@ -37,9 +36,8 @@ class CreateNewAccountTest {
     }
 
     @Test
-    fun `creates a new account when requested`() {
-        commandBus.publish(CreateNewAccount(requestId, UUID.randomUUID(), initialBalance))
+    fun `creates a new customer when requested`() {
+        commandBus.publish(CreateNewCustomer(requestId, "Joe", "Bloggs", LocalDate.of(1979, 11, 23)))
         eventRepo.size() shouldBe 2
     }
-
 }

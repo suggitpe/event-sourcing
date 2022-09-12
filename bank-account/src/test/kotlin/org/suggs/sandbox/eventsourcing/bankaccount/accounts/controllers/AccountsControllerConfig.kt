@@ -13,5 +13,5 @@ open class AccountsControllerConfig {
     open fun accountsRepository() = InMemoryEventRepository()
 
     @Bean
-    open fun accountBus() = QueuingCommandBus(EventBus("Test Event Bus"))
+    open fun accountBus() = QueuingCommandBus()
 }

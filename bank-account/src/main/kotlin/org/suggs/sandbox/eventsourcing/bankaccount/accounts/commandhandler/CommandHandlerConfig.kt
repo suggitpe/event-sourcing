@@ -20,17 +20,10 @@ open class CommandHandlerConfig {
     private lateinit var eventRepo: EventRepository
 
     @Bean
-    open fun createAccountRequestHandler(): CommandHandler<*> {
-        val handler = CreateAccountCommandHandler(eventRepo, commandBus)
-        commandBus.registerSubscriber(handler)
-        return handler
-    }
-
-    @Bean
-    open fun createConfirmToClientHandler(): CommandHandler<*> {
-        val handler = ConfirmAccountToClientHandler(eventRepo)
-        commandBus.registerSubscriber(handler)
-        return handler
+    open fun registerHandlers() {
+        commandBus.registerSubscriber(CreateAccountHandler(eventRepo, commandBus))
+        commandBus.registerSubscriber(ConfirmActivityToClientHandler(eventRepo, commandBus))
+        commandBus.registerSubscriber(CreateCustomerHandler(eventRepo, commandBus))
     }
 
 }

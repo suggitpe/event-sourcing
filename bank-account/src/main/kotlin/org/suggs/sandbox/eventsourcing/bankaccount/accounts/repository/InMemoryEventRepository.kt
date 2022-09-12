@@ -8,8 +8,8 @@ class InMemoryEventRepository : EventRepository {
 
     private val eventQueue: Queue<Event> = LinkedBlockingQueue()
 
-    override fun save(anEvent: Event) {
-        eventQueue.add(anEvent)
+    override fun save(event: Event) {
+        eventQueue.add(event)
     }
 
     override fun size(): Int {
@@ -18,5 +18,9 @@ class InMemoryEventRepository : EventRepository {
 
     override fun head(): Event {
         return eventQueue.element()
+    }
+
+    override fun clear() {
+        eventQueue.clear()
     }
 }
