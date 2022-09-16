@@ -1,6 +1,8 @@
 package org.suggs.sandbox.eventsourcing.bankaccount.accounts
 
+import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -10,6 +12,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandlerConfig
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateNewAccount
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.AccountCreated
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.ActivityConfirmedToClient
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository
 import java.math.BigDecimal
 import java.util.*
@@ -40,6 +44,8 @@ class CreateNewAccountTest {
     fun `creates a new account when requested`() {
         commandBus.publish(CreateNewAccount(requestId, UUID.randomUUID(), initialBalance))
         eventRepo.size() shouldBe 2
+        eventRepo.read().shouldBeInstanceOf<AccountCreated>()
+        eventRepo.read().shouldBeInstanceOf<ActivityConfirmedToClient>()
     }
 
 }

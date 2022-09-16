@@ -17,7 +17,11 @@ class InMemoryEventRepository : EventRepository {
     }
 
     override fun head(): Event {
-        return eventQueue.element()
+        return eventQueue.peek()
+    }
+
+    override fun read(): Event {
+        return eventQueue.remove()
     }
 
     override fun clear() {

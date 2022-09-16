@@ -1,6 +1,8 @@
 package org.suggs.sandbox.eventsourcing.bankaccount.accounts
 
+import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -10,6 +12,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandlerConfig
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateNewCustomer
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.ActivityConfirmedToClient
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.CustomerCreated
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository
 import java.time.LocalDate
 import java.util.*
@@ -39,5 +43,7 @@ class CreateNewCustomerTest {
     fun `creates a new customer when requested`() {
         commandBus.publish(CreateNewCustomer(requestId, "Joe", "Bloggs", LocalDate.of(1979, 11, 23)))
         eventRepo.size() shouldBe 2
+        eventRepo.read().shouldBeInstanceOf<CustomerCreated>()
+        eventRepo.read().shouldBeInstanceOf<ActivityConfirmedToClient>()
     }
 }

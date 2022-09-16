@@ -10,5 +10,7 @@ interface EventRepository {
 
     fun head(): Event
 
+    fun read(): Event
+
     fun clear()
 }
