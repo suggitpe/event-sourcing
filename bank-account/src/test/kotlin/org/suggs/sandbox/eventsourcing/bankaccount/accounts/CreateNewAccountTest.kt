@@ -1,6 +1,5 @@
 package org.suggs.sandbox.eventsourcing.bankaccount.accounts
 
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import org.junit.jupiter.api.BeforeEach
@@ -9,12 +8,12 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.slf4j.LoggerFactory
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandbus.CommandBus
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandlerConfig
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateNewAccount
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.AccountCreated
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.ActivityConfirmedToClient
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.eventstore.EventStore
 import java.math.BigDecimal
 import java.util.*
 import javax.inject.Inject
@@ -33,7 +32,7 @@ class CreateNewAccountTest {
     private lateinit var commandBus: CommandBus
 
     @Inject
-    private lateinit var eventRepo: EventRepository
+    private lateinit var eventRepo: EventStore
 
     @BeforeEach
     fun `clear event repo`() {

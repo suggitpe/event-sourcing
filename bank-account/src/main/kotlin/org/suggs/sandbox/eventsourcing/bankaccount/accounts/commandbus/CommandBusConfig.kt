@@ -1,4 +1,4 @@
-package org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus
+package org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandbus
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

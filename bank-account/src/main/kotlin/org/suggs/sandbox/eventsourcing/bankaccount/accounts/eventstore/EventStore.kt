@@ -1,8 +1,8 @@
-package org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository
+package org.suggs.sandbox.eventsourcing.bankaccount.accounts.eventstore
 
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.Event
 
-interface EventRepository {
+interface EventStore {
 
     fun save(event: Event)
 
@@ -13,4 +13,6 @@ interface EventRepository {
     fun read(): Event
 
     fun clear()
+
+    fun registerProjection()
 }

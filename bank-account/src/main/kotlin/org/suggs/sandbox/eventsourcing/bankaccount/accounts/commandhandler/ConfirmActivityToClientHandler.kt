@@ -3,16 +3,15 @@ package org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler
 import com.google.common.eventbus.AllowConcurrentEvents
 import com.google.common.eventbus.Subscribe
 import org.slf4j.LoggerFactory
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandbus.CommandBus
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.ConfirmActivityToClient
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.AccountCreated
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.ActivityConfirmedToClient
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.CustomerCreated
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.Event
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository
-import java.util.*
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.eventstore.EventStore
 
-class ConfirmActivityToClientHandler(private val eventRepo: EventRepository, private val commandBus: CommandBus) : CommandHandler<ConfirmActivityToClient> {
+class ConfirmActivityToClientHandler(private val eventRepo: EventStore, private val commandBus: CommandBus) : CommandHandler<ConfirmActivityToClient> {
 
     companion object {
         private val log = LoggerFactory.getLogger(this::class.java)

@@ -3,16 +3,16 @@ package org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler
 import com.google.common.eventbus.AllowConcurrentEvents
 import com.google.common.eventbus.Subscribe
 import org.slf4j.LoggerFactory
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus.CommandBus
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandbus.CommandBus
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.Account
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.ConfirmActivityToClient
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateNewAccount
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.AccountCreated
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository.EventRepository
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.eventstore.EventStore
 import java.math.BigDecimal
 import java.util.*
 
-class CreateAccountHandler(private val eventRepo: EventRepository, private val commandBus: CommandBus) : CommandHandler<CreateNewAccount> {
+class CreateAccountHandler(private val eventRepo: EventStore, private val commandBus: CommandBus) : CommandHandler<CreateNewAccount> {
 
     companion object {
         private val log = LoggerFactory.getLogger(this::class.java)

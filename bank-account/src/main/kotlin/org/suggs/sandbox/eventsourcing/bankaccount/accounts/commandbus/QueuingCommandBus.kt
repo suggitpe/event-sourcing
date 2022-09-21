@@ -1,4 +1,4 @@
-package org.suggs.sandbox.eventsourcing.bankaccount.accounts.bus
+package org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandbus
 
 import com.google.common.eventbus.EventBus
 import org.slf4j.LoggerFactory

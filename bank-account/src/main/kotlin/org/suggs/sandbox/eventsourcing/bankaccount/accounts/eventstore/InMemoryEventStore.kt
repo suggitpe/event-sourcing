@@ -1,10 +1,10 @@
-package org.suggs.sandbox.eventsourcing.bankaccount.accounts.repository
+package org.suggs.sandbox.eventsourcing.bankaccount.accounts.eventstore
 
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.Event
 import java.util.*
 import java.util.concurrent.LinkedBlockingQueue
 
-class InMemoryEventRepository : EventRepository {
+class InMemoryEventStore : EventStore {
 
     private val eventQueue: Queue<Event> = LinkedBlockingQueue()
 
@@ -26,5 +26,9 @@ class InMemoryEventRepository : EventRepository {
 
     override fun clear() {
         eventQueue.clear()
+    }
+
+    override fun registerProjection() {
+
     }
 }
