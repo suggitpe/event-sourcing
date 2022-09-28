@@ -15,5 +15,5 @@ interface EventStore {
 
     fun clear()
 
-    fun registerAggregate(aggregate: Aggregate)
+    fun registerAggregate(aggregate: Aggregate<*>)
 }

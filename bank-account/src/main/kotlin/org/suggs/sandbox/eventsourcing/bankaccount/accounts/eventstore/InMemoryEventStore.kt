@@ -8,7 +8,7 @@ import java.util.concurrent.LinkedBlockingDeque
 class InMemoryEventStore : EventStore {
 
     private val eventQueue: Queue<Event> = LinkedBlockingDeque()
-    private var aggregates: List<Aggregate> = listOf()
+    private var aggregates: List<Aggregate<*>> = listOf()
 
     override fun save(event: Event) {
         eventQueue.add(event)
@@ -31,7 +31,7 @@ class InMemoryEventStore : EventStore {
         eventQueue.clear()
     }
 
-    override fun registerAggregate(aggregate: Aggregate) {
+    override fun registerAggregate(aggregate: Aggregate<*>) {
         aggregates = aggregates + aggregate
     }
 }

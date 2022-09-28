@@ -12,7 +12,6 @@ import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandbus.CommandBu
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandlerConfig
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateNewAccount
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.AccountCreated
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.ActivityConfirmedToClient
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.eventstore.EventStore
 import java.math.BigDecimal
 import java.util.*
@@ -42,9 +41,8 @@ class CreateNewAccountTest {
     @Test
     fun `creates a new account when requested`() {
         commandBus.publish(CreateNewAccount(requestId, UUID.randomUUID(), initialBalance))
-        eventStore.size() shouldBe 2
+        eventStore.size() shouldBe 1
         eventStore.read().shouldBeInstanceOf<AccountCreated>()
-        eventStore.read().shouldBeInstanceOf<ActivityConfirmedToClient>()
     }
 
 }
