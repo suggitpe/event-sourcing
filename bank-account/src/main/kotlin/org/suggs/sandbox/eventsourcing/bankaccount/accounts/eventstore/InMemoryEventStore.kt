@@ -1,15 +1,18 @@
 package org.suggs.sandbox.eventsourcing.bankaccount.accounts.eventstore
 
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.aggregate.Aggregate
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.Event
 import java.util.*
-import java.util.concurrent.LinkedBlockingQueue
+import java.util.concurrent.LinkedBlockingDeque
 
 class InMemoryEventStore : EventStore {
 
-    private val eventQueue: Queue<Event> = LinkedBlockingQueue()
+    private val eventQueue: Queue<Event> = LinkedBlockingDeque()
+    private var aggregates: List<Aggregate> = listOf()
 
     override fun save(event: Event) {
         eventQueue.add(event)
+        aggregates.map { it.observeEvent(event) }
     }
 
     override fun size(): Int {
@@ -28,7 +31,7 @@ class InMemoryEventStore : EventStore {
         eventQueue.clear()
     }
 
-    override fun registerProjection() {
-
+    override fun registerAggregate(aggregate: Aggregate) {
+        aggregates = aggregates + aggregate
     }
 }

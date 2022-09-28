@@ -1,4 +1,4 @@
-package org.suggs.sandbox.eventsourcing.bankaccount.accounts.projection
+package org.suggs.sandbox.eventsourcing.bankaccount.accounts.aggregate
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -6,9 +6,8 @@ import org.springframework.context.annotation.Import
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.eventstore.EventStoreConfig
 
 @Configuration
-@Import(EventStoreConfig::class)
-open class ProjectionConfig {
+open class AggregateConfig {
 
     @Bean
-    open fun createCustomerProjection() = InMemoryCustomerProjection()
+    open fun createCustomerAggregate() = CachedCustomerAggregate()
 }

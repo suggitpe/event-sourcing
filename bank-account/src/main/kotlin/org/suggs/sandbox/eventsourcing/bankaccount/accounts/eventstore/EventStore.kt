@@ -1,5 +1,6 @@
 package org.suggs.sandbox.eventsourcing.bankaccount.accounts.eventstore
 
+import org.suggs.sandbox.eventsourcing.bankaccount.accounts.aggregate.Aggregate
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.Event
 
 interface EventStore {
@@ -14,5 +15,5 @@ interface EventStore {
 
     fun clear()
 
-    fun registerProjection()
+    fun registerAggregate(aggregate: Aggregate)
 }

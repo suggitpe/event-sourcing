@@ -11,7 +11,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandbus.CommandBus
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.commandhandler.CommandHandlerConfig
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateNewCustomer
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.ActivityConfirmedToClient
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.CustomerCreated
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.eventstore.EventStore
 import java.time.LocalDate
@@ -31,18 +30,17 @@ class CreateNewCustomerTest {
     private lateinit var commandBus: CommandBus
 
     @Inject
-    private lateinit var eventRepo: EventStore
+    private lateinit var eventStore: EventStore
 
     @BeforeEach
     fun `clear event repo`() {
-        eventRepo.clear()
+        eventStore.clear()
     }
 
     @Test
     fun `creates a new customer when requested`() {
         commandBus.publish(CreateNewCustomer(requestId, "Joe", "Bloggs", LocalDate.of(1979, 11, 23)))
-        eventRepo.size() shouldBe 2
-        eventRepo.read().shouldBeInstanceOf<CustomerCreated>()
-        eventRepo.read().shouldBeInstanceOf<ActivityConfirmedToClient>()
+        eventStore.size() shouldBe 1
+        eventStore.read().shouldBeInstanceOf<CustomerCreated>()
     }
 }

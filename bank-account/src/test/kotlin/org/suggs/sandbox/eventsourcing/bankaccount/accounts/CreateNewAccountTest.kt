@@ -32,19 +32,19 @@ class CreateNewAccountTest {
     private lateinit var commandBus: CommandBus
 
     @Inject
-    private lateinit var eventRepo: EventStore
+    private lateinit var eventStore: EventStore
 
     @BeforeEach
     fun `clear event repo`() {
-        eventRepo.clear()
+        eventStore.clear()
     }
 
     @Test
     fun `creates a new account when requested`() {
         commandBus.publish(CreateNewAccount(requestId, UUID.randomUUID(), initialBalance))
-        eventRepo.size() shouldBe 2
-        eventRepo.read().shouldBeInstanceOf<AccountCreated>()
-        eventRepo.read().shouldBeInstanceOf<ActivityConfirmedToClient>()
+        eventStore.size() shouldBe 2
+        eventStore.read().shouldBeInstanceOf<AccountCreated>()
+        eventStore.read().shouldBeInstanceOf<ActivityConfirmedToClient>()
     }
 
 }
