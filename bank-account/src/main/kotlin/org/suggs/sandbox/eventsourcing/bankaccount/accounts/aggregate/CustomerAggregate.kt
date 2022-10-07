@@ -2,7 +2,6 @@ package org.suggs.sandbox.eventsourcing.bankaccount.accounts.aggregate
 
 import org.slf4j.LoggerFactory
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.Customer
-import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateNewAccount
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.command.CreateNewCustomer
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.CustomerCreated
 import org.suggs.sandbox.eventsourcing.bankaccount.accounts.domain.event.CustomerRejected
@@ -18,6 +17,12 @@ class CustomerAggregate : Aggregate<CreateNewCustomer> {
         private val log = LoggerFactory.getLogger(this::class.java)
     }
 
+    override fun observeEvent(event: Event) {
+        when (event) {
+            is CustomerCreated -> customers = customers + mapOf(event.customer.customerId to event.customer)
+        }
+    }
+
     override fun execute(command: CreateNewCustomer): Event {
         return when {
             customerExists(command.firstName, command.lastName, command.dateOfBirth) -> {
@@ -25,6 +30,7 @@ class CustomerAggregate : Aggregate<CreateNewCustomer> {
                 CustomerRejected(command.requestId, "Customer already exists")
             }
             else -> {
+                log.debug("Creating new customer from $command")
                 CustomerCreated(command.requestId, createCustomer(command))
             }
         }
@@ -36,13 +42,6 @@ class CustomerAggregate : Aggregate<CreateNewCustomer> {
     private fun createCustomer(command: CreateNewCustomer): Customer {
         val customerId = UUID.randomUUID()
         // do some checks etc
-        log.debug("Creating new customer from $command")
         return Customer(customerId, command.firstName, command.lastName, command.dateOfBirth)
-    }
-
-    override fun observeEvent(event: Event) {
-        when (event) {
-            is CustomerCreated -> customers = customers + mapOf(event.customer.customerId to event.customer)
-        }
     }
 }

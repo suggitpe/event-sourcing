@@ -8,4 +8,7 @@ open class AggregateConfig {
 
     @Bean
     open fun createCustomerAggregate() = CustomerAggregate()
+
+    @Bean
+    open fun createAccountAggregate() = AccountAggregate()
 }
